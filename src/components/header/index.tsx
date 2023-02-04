@@ -11,30 +11,30 @@ import { AiOutlineClose } from "react-icons/ai";
 const Header = () => {
   const [menu] = React.useState([
     {
-      label: "Home",
+      label: "হোম",
       href: "/",
     },
     {
-      label: "Shop",
+      label: "জুব্বা",
       href: "/shop",
     },
     {
-      label: "About",
+      label: "আমাদের সম্পর্কে",
       href: "/about",
     },
     {
-      label: "Contact",
+      label: "যোগাযোগ",
       href: "/contact",
     },
     {
-      label: "Blog",
+      label: "ব্লগ",
       href: "/blog",
     },
   ]);
   const [isSidebar, setSidebar] = React.useState<boolean>(false);
 
   return (
-    <header className="bg-white shadow-[0_0_15px_#20393c14] relative">
+    <header className="bg-white shadow-[0_0_15px_#20393c14] relative z-30">
       <div className="container flex gap-3 justify-between items-center py-4">
         <Link href="/" className="flex gap-2 items-center">
           <Image
@@ -43,7 +43,7 @@ const Header = () => {
             src={"/images/logo_black.png"}
             alt="Black Logo"
           />
-          <h2 className="text-black text-xl font-semibold hidden md:block">
+          <h2 className="text-black text-xl font-semibold hidden">
             Saudia Jubba House
           </h2>
         </Link>
@@ -58,7 +58,7 @@ const Header = () => {
                 index: number
               ) => (
                 <Link
-                  className={`flex items-center text-black text-lg uppercase font-semibold`}
+                  className={`flex items-center text-gray-500 hover:text-green transition-all text-lg uppercase`}
                   href={item.href}
                   key={index}
                 >

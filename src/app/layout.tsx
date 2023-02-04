@@ -1,8 +1,11 @@
 import { Header } from "@/components";
 import "./globals.css";
-import { Open_Sans } from "@next/font/google";
+import { Hind_Siliguri } from "@next/font/google";
 
-const fontFamily = Open_Sans({ subsets: ["latin"] });
+const fontFamily = Hind_Siliguri({
+  weight: ["400", "700"],
+  subsets: ["bengali"],
+});
 
 export default function RootLayout({
   children,
