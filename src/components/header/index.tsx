@@ -35,7 +35,7 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-[0_0_15px_#20393c14] relative z-30">
-      <div className="container flex gap-3 justify-between items-center py-4">
+      <div className="container flex gap-3 justify-between items-center py-2 sm:py-4">
         <Link href="/" className="flex gap-2 items-center">
           <Image
             width={60}

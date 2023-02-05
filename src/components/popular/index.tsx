@@ -51,7 +51,7 @@ const Popular = () => {
   ]);
 
   return (
-    <section className="py-8 sm:py-24 min-h-screen bg-cover xl:bg-contain bg-no-repeat bg-popularMobile xl:bg-popularDesktop">
+    <section className="py-8 sm:py-24 bg-cover xl:bg-contain bg-no-repeat bg-popularMobile xl:bg-popularDesktop">
       <div className="container">
         <h1 className="text-4xl text-white sm:text-center">
           কিছু পপুলার জুব্বা

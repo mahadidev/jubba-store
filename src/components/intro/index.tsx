@@ -6,7 +6,7 @@ import AnimationData from "./animation.json";
 
 const Intro = () => {
   return (
-    <section className="flex items-center py-16 sm:py-24 lg:py-40">
+    <section className="flex items-center py-16 sm:py-24 lg:py-32">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center mt-4">
           <div className="">

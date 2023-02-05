@@ -1,5 +1,5 @@
 "use client";
-import { Header } from "@/components";
+import { Footer, Header } from "@/components";
 import "./globals.css";
 import { Hind_Siliguri } from "@next/font/google";
 
@@ -19,6 +19,7 @@ export default function RootLayout({
       <body className={`${fontFamily.className} min-h-screen`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

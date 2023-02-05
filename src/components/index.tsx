@@ -6,3 +6,4 @@ export { default as Status } from "./status";
 export { default as Intro } from "./intro";
 export { default as Popular } from "./popular";
 export { default as Product } from "./product";
+export { default as Footer } from "./footer";
