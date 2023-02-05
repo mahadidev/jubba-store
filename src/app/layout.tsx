@@ -1,5 +1,5 @@
 "use client";
-import { Footer, Header } from "@/components";
+import { Copyright, Footer, Header } from "@/components";
 import "./globals.css";
 import { Hind_Siliguri } from "@next/font/google";
 
@@ -20,6 +20,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Copyright />
       </body>
     </html>
   );
