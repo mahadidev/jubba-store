@@ -4,3 +4,5 @@ export { default as Button } from "./button";
 export { default as Card } from "./card";
 export { default as Status } from "./status";
 export { default as Intro } from "./intro";
+export { default as Popular } from "./popular";
+export { default as Product } from "./product";

@@ -21,6 +21,10 @@ module.exports = {
         center: true,
         padding: "1rem",
       },
+      backgroundImage: {
+        popularDesktop: "url(../../public/images/popular_bg.png)",
+        popularMobile: "url(../../public/images/popular_bg_mobile.png)",
+      },
     },
   },
   plugins: [],
