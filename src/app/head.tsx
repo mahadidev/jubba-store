@@ -12,6 +12,20 @@ export default function Head() {
         content="Soudia, Jubba, Bangla, Bangladeshi, Bd, Dhaka, House, জুব্বা, বাংলাদেশ, বাংলা, হাউজ, সৌদিয়া জুব্বা হাউজ, ইসলামিক, পোশাক, পাঞ্জাবি, সুন্নতি,"
       />
       <meta name="author" content="Soudia Jubba House" />
+
+      <meta
+        property="og:title"
+        content="Soudia Jubba House | সৌদিয়া জুব্বা হাউজ"
+      />
+      <meta
+        property="og:description"
+        content="সৌদি জুব্বা অতুলনীয় ডিজাইনের দেশ ও দেশের বাইরে সরবরাহ করি।"
+      />
+      <meta property="og:url" content="https://jubbas.vercel.app/" />
+      <meta
+        property="og:image"
+        content="https://jubbas.vercel.app/images/og_thumbnail.png"
+      />
       <link rel="icon" href="/favicon.ico" />
     </>
   );
