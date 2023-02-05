@@ -68,7 +68,7 @@ const Header = () => {
             )}
           </div>
           <Button className="bg-red text-white !hidden lg:!flex">
-            Order Now
+            অর্ডার করুন
           </Button>
         </div>
         <div className="block sm:hidden">

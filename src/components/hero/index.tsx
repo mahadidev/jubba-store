@@ -67,7 +67,7 @@ const Hero = () => {
               - সৌদিয়া জুব্বা হাউজ
             </p>
             <Button className="bg-green text-white text-lg mt-2 ml-auto">
-              Order Now
+              অর্ডার করুন
             </Button>
           </div>
         </div>
