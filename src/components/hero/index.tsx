@@ -50,7 +50,9 @@ const Hero = () => {
             />
           </div>
           <div className="py-4 px-4 z-20 bg-white md:bg-transparent shadow-[0_0_50px_#48585033] md:shadow-none rounded-lg absolute left-0 right-0 bottom-10 md:static">
-            <p className="text-black md:text-white text-xl">بيت جبة السعودية</p>
+            <p className="text-black md:text-white text-xl">
+              بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+            </p>
             <h1
               className={`${titleFont.className} text-2xl md:text-3xl lg:text-4xl xl:text-8xl text-black md:text-white`}
             >

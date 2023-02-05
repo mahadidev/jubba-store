@@ -1,3 +1,4 @@
+"use client";
 import { Header } from "@/components";
 import "./globals.css";
 import { Hind_Siliguri } from "@next/font/google";
