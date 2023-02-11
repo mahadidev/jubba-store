@@ -1,11 +1,8 @@
 "use client";
-import Image from "next/image";
 import React from "react";
-import { Button, Product } from "@/components";
-import "swiper/css";
-import Title from "../title";
+import Product from "../product";
 
-const Popular = () => {
+const Products = () => {
   const [products] = React.useState<
     {
       title: string;
@@ -121,39 +118,37 @@ const Popular = () => {
   ]);
 
   return (
-    <section className="py-8 sm:py-24 bg-cover xl:bg-contain bg-no-repeat bg-popularMobile xl:bg-popularDesktop">
-      <div className="container">
-        <Title
-          className="w-full max-w-[700px] mx-auto"
-          titleClassName="!text-white text-center"
-          subTitleClassName="!text-white text-center"
-          subTitle="জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী (সা.)
-          পরেছেন"
-          isBorder={true}
-          borderClassName="!bg-white"
-        >
-          আমাদের কিছু পপুলার জুব্বা
-        </Title>
-        <div className="grid grid-cols-6 gap-4 mt-8 bg-white rounded-lg shadow-[0_0_50px_#48585033] px-4 py-4">
-          {products?.map(
-            (
-              item: {
-                title: string;
-                thumbnail: string;
-                price: number;
-              },
-              index: number
-            ) => (
-              <Product key={index} {...item} />
-            )
-          )}
+    <>
+      <section className="py-24 bg-[url(../../public/images/shop_breadcrumb_bg.png)] bg-cover bg-center bg-no-repeat relative">
+        <div className="w-full h-full absolute top-0 left-0 bg-black/50"></div>
+        <div className="container relative z-20">
+          <h1 className="text-4xl text-white font-bold">আমাদের সকল জুব্বা</h1>
+          <p className="text-xl text-white font-bold">
+            জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী (সা.)
+            পরেছেন
+          </p>
         </div>
-        <Button className="bg-green text-white mx-auto mt-8">
-          সকল জুব্বা দেখুন
-        </Button>
-      </div>
-    </section>
+      </section>
+      <section className="py-12">
+        <div className="container">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            {products?.map(
+              (
+                item: {
+                  title: string;
+                  thumbnail: string;
+                  price: number;
+                },
+                index: number
+              ) => (
+                <Product key={index} {...item} />
+              )
+            )}
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
-export default Popular;
+export default Products;

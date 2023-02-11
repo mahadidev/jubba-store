@@ -8,3 +8,8 @@ export { default as Popular } from "./popular";
 export { default as Product } from "./product";
 export { default as Footer } from "./footer";
 export { default as Copyright } from "./copyright";
+export { default as Offer } from "./offer";
+export { default as Contact } from "./contact";
+export { default as Products } from "./products";
+export { default as Breadcrumb } from "./breadcrumb";
+export { default as Test } from "./test";

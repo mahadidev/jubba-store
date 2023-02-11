@@ -1,11 +1,13 @@
-import { Hero, Intro, Popular } from "@/components";
+import { Hero, Test } from "@/components";
+import React from "react";
 
-export default function Home() {
+const Page = () => {
   return (
     <main>
       <Hero />
-      <Intro />
-      <Popular />
+      <Test />
     </main>
   );
-}
+};
+
+export default Page;

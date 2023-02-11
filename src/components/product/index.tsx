@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 
 const Product = ({
@@ -12,7 +11,7 @@ const Product = ({
   price: number;
 }) => {
   return (
-    <div className="w-full bg-white rounded-lg shadow-[0_0_50px_#48585033] overflow-hidden">
+    <div className="w-full overflow-hidden">
       <div className="p-1">
         <img
           width={600}

@@ -2,17 +2,18 @@
 
 import React from "react";
 import Lottie from "react-lottie";
+import Title from "../title";
 import AnimationData from "./animation.json";
 
 const Intro = () => {
   return (
-    <section className="flex items-center py-16 sm:py-24 lg:py-32">
+    <section className="flex items-center py-4 lg:py-12">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center mt-4">
           <div className="">
-            <h1 className="text-3xl text-green">
+            <Title titleClassName="text-green mb-2" isBorder={false}>
               জোব্বা, পাঞ্জাবি ও পাজামা পরা কি সুন্নত?
-            </h1>
+            </Title>
             <p>
               উত্তর : জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি
               নবী (সা.) পরেছেন, এই জন্য পরেন, তাহলে তিনি সওয়াব পাবেন কোনো সন্দেহ

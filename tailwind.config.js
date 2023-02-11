@@ -14,8 +14,8 @@ module.exports = {
         primary: "#20393C",
         green: "#3EC880",
         red: "#DE9089",
-        black: "#383737",
-        light: "#424040",
+        black: "#000000",
+        light: "#7E7E7E",
       },
       container: {
         center: true,

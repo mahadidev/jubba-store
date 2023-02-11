@@ -1,10 +1,10 @@
-import { Status } from "@/components";
+import { Products } from "@/components";
 import React from "react";
 
 const page = () => {
   return (
     <>
-      <Status />
+      <Products />
     </>
   );
 };

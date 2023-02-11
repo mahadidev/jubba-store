@@ -3,7 +3,7 @@ import React from "react";
 
 const Copyright = () => {
   return (
-    <div className="w-full py-2 bg-primary border-t">
+    <div className="w-full py-2 bg-[#0A0E19] border-t">
       <div className="container">
         <div className="flex flex-col sm:flex-row justify-between">
           <p className="text-white">কপিরাইট © 2023, সৌদিয়া জুব্বা হাউজ</p>
