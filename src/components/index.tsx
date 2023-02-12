@@ -12,4 +12,4 @@ export { default as Offer } from "./offer";
 export { default as Contact } from "./contact";
 export { default as Products } from "./products";
 export { default as Breadcrumb } from "./breadcrumb";
-export { default as Test } from "./test";
+export { default as Blog } from "./blog";

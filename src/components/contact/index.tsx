@@ -1,11 +1,10 @@
-import Image from "next/image";
 import React from "react";
 import Button from "../button";
 import Title from "../title";
 
 const Contact = () => {
   return (
-    <section className="mt-12 py-24 bg-[url(../../public/images/home_contact_bg.png)] bg-cover bg-no-repeat bg-bottom flex items-center relative contact__section">
+    <section className="py-24 bg-[url(../../public/images/home_contact_bg.png)] bg-cover bg-no-repeat bg-bottom flex items-center relative contact__section">
       <div className="container">
         <div className="w-full max-w-[600px] ml-auto backdrop-blur-lg bg-white/30 text-white font-bold rounded-lg px-4 py-6">
           <Title titleClassName="!text-white">আমাদের ইমেল করুন</Title>

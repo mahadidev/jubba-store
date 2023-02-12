@@ -1,11 +1,15 @@
-import { Hero, Test } from "@/components";
+"use client";
+import { Blog, Contact, Hero, Intro, Popular } from "@/components";
 import React from "react";
 
 const Page = () => {
   return (
     <main>
       <Hero />
-      <Test />
+      <Popular />
+      <Intro />
+      <Blog />
+      <Contact />
     </main>
   );
 };

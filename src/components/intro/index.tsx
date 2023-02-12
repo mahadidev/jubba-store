@@ -1,50 +1,66 @@
 "use client";
-
+import Image from "next/image";
 import React from "react";
-import Lottie from "react-lottie";
-import Title from "../title";
-import AnimationData from "./animation.json";
+import { motion } from "framer-motion";
 
-const Intro = () => {
+const NewIntro = () => {
+  const [isHover, setHover] = React.useState<boolean>(false);
+
   return (
-    <section className="flex items-center py-4 lg:py-12">
-      <div className="container">
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center mt-4">
-          <div className="">
-            <Title titleClassName="text-green mb-2" isBorder={false}>
+    <section className="mt-24">
+      <div className="grid md:grid-cols-2">
+        <div className="w-full h-[30vh] md:h-[60vh] bg-[url(../../public/images/intro_bg.png)]">
+          <div className="w-full h-full bg-primary flex flex-col justify-center pl-12 pr-3">
+            <h1 className="text-4xl text-white font-bold">
               জোব্বা, পাঞ্জাবি ও পাজামা পরা কি সুন্নত?
-            </Title>
-            <p>
-              উত্তর : জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি
-              নবী (সা.) পরেছেন, এই জন্য পরেন, তাহলে তিনি সওয়াব পাবেন কোনো সন্দেহ
-              নেই।নবী (সা.) বিভিন্ন ধরনের জোব্বা পরেছেন, ইয়েমেনি জোব্বা পরেছেন,
-              রোমি জোব্বা পরেছেন, সুস্পষ্ট হাদিসের মাধ্যমে সাব্যস্ত হয়েছে।
-              সুনানে তিরমিজি, সুনানে নাসাঈর মধ্যে হাদিসটি রয়েছে, একাধিক হাদিসের
-              কিতাবের মধ্যে এই মর্মে হাদিস রয়েছে। তাই যদি কেউ নবী (সা.) পরেছেন এ
-              কারণে তিনি জোব্বা পরেন, তাহলে তিনি নবী (সা.)-এর আমলের কারণে সওয়াব
-              পাবেন, শুধু জোব্বা পরার কারণে নয়।
+            </h1>
+            <p className="w-full max-w-[600px] mt-2 text-base text-slate-200 font-bold">
+              জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী (সা.)
+              পরেছেন, এই জন্য পরেন, তাহলে তিনি সওয়াব পাবেন কোনো সন্দেহ নেই।
             </p>
           </div>
-          <div className="w-full max-w-[600px] mx-auto lg:mr-0 lg:ml-auto">
-            <Lottie
-              options={{
-                loop: true,
-                autoplay: true,
-                animationData: AnimationData,
-                rendererSettings: {
-                  preserveAspectRatio: "xMidYMid slice",
-                },
-              }}
-              height={"auto"}
-              width={"100%"}
-              isClickToPauseDisabled={true}
-              speed={0.2}
+        </div>
+        <div
+          className="w-full h-[30vh] md:h-[60vh] bg-gray-100 overflow-hidden relative"
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          <motion.div
+            className="w-full h-full relative"
+            initial={{
+              scale: isHover ? 1.05 : 1,
+            }}
+            animate={{
+              scale: isHover ? 1.05 : 1,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 500,
+              damping: 50,
+            }}
+          >
+            <Image
+              width={1000}
+              height={1000}
+              className="w-full h-full object-cover"
+              src="/images/jubba_intro.png"
+              alt="Jubba Fashion"
             />
-          </div>
+            <div className="w-full h-full bg-black/20 absolute top-0 left-0 right-0 bottom-0"></div>
+          </motion.div>
+
+          <button className="absolute top-0 bottom-0 left-0 right-0 m-auto z-30 w-max">
+            <Image
+              width={120}
+              height={120}
+              src="/images/play_icon_white.webp"
+              alt="Play Icon"
+            />
+          </button>
         </div>
       </div>
     </section>
   );
 };
 
-export default Intro;
+export default NewIntro;

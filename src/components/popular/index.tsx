@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { Button, Product } from "@/components";
-import "swiper/css";
-import Title from "../title";
+import { Product } from "@/components";
 
 const Popular = () => {
+  // dummy product data
   const [products] = React.useState<
     {
       title: string;
@@ -14,145 +13,65 @@ const Popular = () => {
     }[]
   >([
     {
-      title: "সৌদি জুব্বা",
+      title: "সেমি-লং সৌদিয়া সাদা জুব্বা",
       thumbnail: "/images/product_1.jpg",
       price: 350,
     },
     {
-      title: "এরাবিয়ান জুব্বা",
+      title: "কালো এরাবিয়ান জুব্বা চেইন কোর্ট",
       thumbnail: "/images/product_2.jpg",
       price: 350,
     },
     {
-      title: "বাংলাদেশী জুব্বা",
+      title: "মডার্ন বোটাম জুব্বা গ্রে-কালার",
       thumbnail: "/images/product_3.jpg",
       price: 350,
     },
     {
-      title: "মোলভি জুব্বা",
+      title: "শর্ট সাহেবি পাঞ্জবি সাদা রং",
       thumbnail: "/images/product_4.jpg",
       price: 350,
     },
     {
-      title: "বেবি জুব্বা",
+      title: "গোল গলা লং জুব্বা কালো রং",
       thumbnail: "/images/product_5.jpg",
       price: 350,
     },
     {
-      title: "সাদা জুব্বা",
+      title: "ডাবল পার্ট জুব্বা সাদা-কালো",
       thumbnail: "/images/product_6.jpg",
-      price: 350,
-    },
-    {
-      title: "ব্লাক জুব্বা",
-      thumbnail: "/images/product_7.jpg",
-      price: 350,
-    },
-    {
-      title: "সৌদি জুব্বা",
-      thumbnail: "/images/product_1.jpg",
-      price: 350,
-    },
-    {
-      title: "এরাবিয়ান জুব্বা",
-      thumbnail: "/images/product_2.jpg",
-      price: 350,
-    },
-    {
-      title: "বাংলাদেশী জুব্বা",
-      thumbnail: "/images/product_3.jpg",
-      price: 350,
-    },
-    {
-      title: "মোলভি জুব্বা",
-      thumbnail: "/images/product_4.jpg",
-      price: 350,
-    },
-    {
-      title: "বেবি জুব্বা",
-      thumbnail: "/images/product_5.jpg",
-      price: 350,
-    },
-    {
-      title: "সাদা জুব্বা",
-      thumbnail: "/images/product_6.jpg",
-      price: 350,
-    },
-    {
-      title: "ব্লাক জুব্বা",
-      thumbnail: "/images/product_7.jpg",
-      price: 350,
-    },
-    {
-      title: "সৌদি জুব্বা",
-      thumbnail: "/images/product_1.jpg",
-      price: 350,
-    },
-    {
-      title: "এরাবিয়ান জুব্বা",
-      thumbnail: "/images/product_2.jpg",
-      price: 350,
-    },
-    {
-      title: "বাংলাদেশী জুব্বা",
-      thumbnail: "/images/product_3.jpg",
-      price: 350,
-    },
-    {
-      title: "মোলভি জুব্বা",
-      thumbnail: "/images/product_4.jpg",
-      price: 350,
-    },
-    {
-      title: "বেবি জুব্বা",
-      thumbnail: "/images/product_5.jpg",
-      price: 350,
-    },
-    {
-      title: "সাদা জুব্বা",
-      thumbnail: "/images/product_6.jpg",
-      price: 350,
-    },
-    {
-      title: "ব্লাক জুব্বা",
-      thumbnail: "/images/product_7.jpg",
       price: 350,
     },
   ]);
 
   return (
-    <section className="py-8 sm:py-24 bg-cover xl:bg-contain bg-no-repeat bg-popularMobile xl:bg-popularDesktop">
-      <div className="container">
-        <Title
-          className="w-full max-w-[700px] mx-auto"
-          titleClassName="!text-white text-center"
-          subTitleClassName="!text-white text-center"
-          subTitle="জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী (সা.)
-          পরেছেন"
-          isBorder={true}
-          borderClassName="!bg-white"
-        >
-          আমাদের কিছু পপুলার জুব্বা
-        </Title>
-        <div className="grid grid-cols-6 gap-4 mt-8 bg-white rounded-lg shadow-[0_0_50px_#48585033] px-4 py-4">
-          {products?.map(
-            (
-              item: {
-                title: string;
-                thumbnail: string;
-                price: number;
-              },
-              index: number
-            ) => (
-              <Product key={index} {...item} />
-            )
-          )}
+    <>
+      <section className="py-12">
+        <div className="container">
+          <div className="mb-8">
+            <Image
+              width={100}
+              height={100}
+              src="/images/hand.webp"
+              alt="Hand Picture"
+              className="mx-auto block mb-6"
+            />
+            <h1 className="text-5xl text-center text-black">
+              আমাদের কিছু পপুলার জুব্বা
+            </h1>
+            <p className="text-light text-center text-lg w-full max-w-[500px] mx-auto mt-4">
+              জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী (সা.)
+              পরেছেন, এই জন্য পরেন, তাহলে তিনি সওয়াব পাবেন।
+            </p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 justify-between gap-7">
+            {products?.map((item: any, index: number) => (
+              <Product {...item} key={index} />
+            ))}
+          </div>
         </div>
-        <Button className="bg-green text-white mx-auto mt-8">
-          সকল জুব্বা দেখুন
-        </Button>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
