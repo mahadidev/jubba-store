@@ -15,7 +15,7 @@ const Blog = ({
   href: string;
 }) => {
   return (
-    <div className=" bg-white rounded-lg shadow-[0_0_#0000,0_0_#0000,0px_40px_150px_-35px_rgba(0,_0,_0,_0.05)] overflow-hidden">
+    <div className=" bg-white rounded-lg shadow-[0_0_#0000,0_0_#0000,0px_40px_150px_-35px_rgba(0,_0,_0,_0.05)] overflow-hidden group">
       <div className="w-full h-auto mb-4 relative overflow-hidden">
         <Image
           className="w-full h-full object-cover"
@@ -27,7 +27,9 @@ const Blog = ({
       </div>
       <div className="px-2 sm:px-7 pb-3 sm:pb-7">
         <a href={href} rel="noreferrer" target="_blank" className="block w-max">
-          <H3 className="text-black w-max">{title}</H3>
+          <H3 className="text-black group-hover:text-green transition-all w-max">
+            {title}
+          </H3>
         </a>
         <P className="text-light sm:mt-1 block">{description}</P>
         <A

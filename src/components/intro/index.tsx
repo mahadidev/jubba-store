@@ -3,9 +3,13 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { H1, H4 } from "@/components";
+import {useStateContext} from "@/context";
 
 const NewIntro = () => {
   const [isHover, setHover] = React.useState<boolean>(false);
+
+  // context
+  const { modalHandler } = useStateContext();
 
   return (
     <section className="mt-12 sm:mt-24">
@@ -53,7 +57,7 @@ const NewIntro = () => {
             <div className="w-full h-full bg-black/20 absolute top-0 left-0 right-0 bottom-0"></div>
           </motion.div>
 
-          <button className="absolute top-0 bottom-0 left-0 right-0 m-auto z-30 w-max h-max play__icon__wrapper rounded-full">
+          <button className="absolute top-0 bottom-0 left-0 right-0 m-auto z-30 w-max h-max play__icon__wrapper rounded-full" onClick={() => modalHandler()}>
             <Image
               className="w-[80px] h-[80px]"
               width={120}

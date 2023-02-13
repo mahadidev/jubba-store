@@ -14,6 +14,10 @@ body {
   overflow-x: hidden;
 }
 
+.modal__open {
+  overflow: hidden;
+}
+
 .contact__section::before {
   content: "";
   position: absolute;

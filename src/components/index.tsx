@@ -8,6 +8,7 @@ export { default as Copyright } from "./copyright";
 export { default as Contact } from "./contact";
 export { default as Blog } from "./blog";
 export { default as Blogs } from "./blogs";
+export { default as Modal } from "./modal";
 export {
   H1,
   H2,
