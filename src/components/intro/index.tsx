@@ -2,22 +2,26 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import { H1, H4 } from "@/components";
 
 const NewIntro = () => {
   const [isHover, setHover] = React.useState<boolean>(false);
 
   return (
-    <section className="mt-24">
+    <section className="mt-12 sm:mt-24">
       <div className="grid md:grid-cols-2">
         <div className="w-full h-[30vh] md:h-[60vh] bg-[url(../../public/images/intro_bg.png)]">
-          <div className="w-full h-full bg-primary flex flex-col justify-center pl-12 pr-3">
-            <h1 className="text-4xl text-white font-bold">
-              জোব্বা, পাঞ্জাবি ও পাজামা পরা কি সুন্নত?
-            </h1>
-            <p className="w-full max-w-[600px] mt-2 text-base text-slate-200 font-bold">
-              জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী (সা.)
-              পরেছেন, এই জন্য পরেন, তাহলে তিনি সওয়াব পাবেন কোনো সন্দেহ নেই।
-            </p>
+          <div className="w-full h-full bg-primary flex flex-col justify-center px-3 py-5 md:pl-12 md:pr-3">
+            <div className="w-full max-w-[600px]">
+              <H1 className="text-white font-bold">
+                জোব্বা, পাঞ্জাবি ও পাজামা পরা কি সুন্নত?
+              </H1>
+              <H4 className=" text-slate-200 font-bold mt-4">
+                জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী
+                (সা.) পরেছেন, এই জন্য পরেন, তাহলে তিনি সওয়াব পাবেন কোনো সন্দেহ
+                নেই।
+              </H4>
+            </div>
           </div>
         </div>
         <div
@@ -49,8 +53,9 @@ const NewIntro = () => {
             <div className="w-full h-full bg-black/20 absolute top-0 left-0 right-0 bottom-0"></div>
           </motion.div>
 
-          <button className="absolute top-0 bottom-0 left-0 right-0 m-auto z-30 w-max">
+          <button className="absolute top-0 bottom-0 left-0 right-0 m-auto z-30 w-max h-max play__icon__wrapper rounded-full">
             <Image
+              className="w-[80px] h-[80px]"
               width={120}
               height={120}
               src="/images/play_icon_white.webp"

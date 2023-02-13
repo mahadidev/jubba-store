@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { Pacifico } from "@next/font/google";
-import Button from "../button";
+import { Button, H1, H2 } from "@/components";
 
 const titleFont = Pacifico({
   weight: ["400"],
@@ -23,23 +23,21 @@ const Hero = () => {
               alt="Model Picture"
             />
           </div>
-          <div className="py-2 sm:py-4 px-2 sm:px-4 z-20 backdrop-blur-sm bg-white/30 md:bg-transparent shadow-[0_0_50px_#48585033] md:shadow-none rounded-lg absolute left-0 right-0 bottom-3 md:static">
+          <div className="py-2 sm:py-4 px-2 sm:px-4 z-20 backdrop-blur-sm bg-white/80 md:bg-transparent shadow-[0_0_50px_#48585033] md:shadow-none rounded-lg absolute left-0 right-0 bottom-3 md:static">
             <p className="text-gray-700 md:text-white text-xl">
               بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
             </p>
-            <h1
-              className={`${titleFont.className} text-gray-700 md:text-white text-2xl md:text-3xl lg:text-4xl xl:text-8xl`}
+            <H1
+              className={`${titleFont.className} text-black md:text-white xl:text-8xl`}
             >
               Soudia Jubba House
-            </h1>
-            <div className="w-full h-[3px] md:h-2 bg-white sm:bg-green md:bg-white rounded my-2 md:my-4"></div>
-            <p
-              className={`text-gray-700 md:text-white font-bold text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl`}
-            >
+            </H1>
+            <div className="w-full h-[3px] md:h-2 bg-green md:bg-white rounded my-2 md:my-4"></div>
+            <H2 className={`text-light md:text-white font-bold`}>
               সৌদি জুব্বা অতুলনীয় ডিজাইনের দেশ ও দেশের বাইরে সরবরাহ করি।
-            </p>
+            </H2>
 
-            <p className="text-gray-700 md:text-white text-sm sm:text-base">
+            <p className="text-light md:text-white text-sm sm:text-base">
               - সৌদিয়া জুব্বা হাউজ
             </p>
             <Button className="bg-green text-white text-sm sm:text-lg sm:mt-2 ml-auto">

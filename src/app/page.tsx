@@ -1,5 +1,5 @@
 "use client";
-import { Blog, Contact, Hero, Intro, Popular } from "@/components";
+import { Blogs, Contact, Hero, Intro, Popular } from "@/components";
 import React from "react";
 
 const Page = () => {
@@ -8,7 +8,7 @@ const Page = () => {
       <Hero />
       <Popular />
       <Intro />
-      <Blog />
+      <Blogs />
       <Contact />
     </main>
   );

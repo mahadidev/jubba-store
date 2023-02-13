@@ -23,3 +23,36 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.play__icon__wrapper {
+  background: rgb(255, 255, 255);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 36, 255, 0) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 36, 255, 0) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 36, 255, 0) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#0024ff",GradientType=1);
+}
+
+.rounded__ring {
+  background: rgb(255, 255, 255);
+  background: -moz-radial-gradient(circle, #3ec880, rgba(0, 36, 255, 0) 100%);
+  background: -webkit-radial-gradient(
+    circle,
+    #3ec880,
+    rgba(0, 36, 255, 0) 100%
+  );
+  background: radial-gradient(circle, #3ec880, rgba(0, 36, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#0024ff",GradientType=1);
+  border-radius: 100%;
+}

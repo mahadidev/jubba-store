@@ -1,13 +1,14 @@
 import Link from "next/link";
 import React from "react";
+import { P } from "@/components";
 
 const Copyright = () => {
   return (
     <div className="w-full py-2 bg-[#0A0E19] border-t">
       <div className="container">
-        <div className="flex flex-col sm:flex-row justify-between">
-          <p className="text-white">কপিরাইট © 2023, সৌদিয়া জুব্বা হাউজ</p>
-          <p className="text-white">
+        <div className="flex flex-col sm:flex-row justify-between gap-1">
+          <P className="text-white">কপিরাইট © 2023, সৌদিয়া জুব্বা হাউজ</P>
+          <P className="text-white">
             Developed by
             <Link
               className="ml-2 text-red"
@@ -16,7 +17,7 @@ const Copyright = () => {
             >
               Mahadi Hasan
             </Link>
-          </p>
+          </P>
         </div>
       </div>
     </div>

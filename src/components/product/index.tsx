@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { H4 } from "@/components";
 
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
@@ -33,14 +34,14 @@ const Product = ({
       >
         <motion.div
           layout="position"
-          className="w-full h-[15rem] sm:h-[20rem] lg:h-[30rem] mb-4 relative overflow-hidden"
+          className="mb-4 relative overflow-hidden"
           transition={{
             layout: { duration: 4, type: "spring" },
           }}
         >
           <Link
             href="/product"
-            className="relative flex justify-center items-start"
+            className="w-full h-[15rem] sm:h-[20rem] lg:h-[30rem] relative flex justify-center items-start"
           >
             <Image
               width={500}
@@ -121,14 +122,10 @@ const Product = ({
           </motion.div>
         </motion.div>
         <Link href="/product">
-          <h1 className="text-base sm:text-xl text-black text-center">
-            {title}
-          </h1>
+          <H4 className="text-black text-center">{title}</H4>
         </Link>
         <Link href="/product">
-          <p className="text-base sm:text-xl text-center text-black font-bold">
-            {price} BDT
-          </p>
+          <H4 className="text-center text-black font-bold">{price} BDT</H4>
         </Link>
       </motion.div>
     </>

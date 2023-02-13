@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
+import { AiFillSkin } from "react-icons/ai";
 import React from "react";
-import { Product } from "@/components";
+import { H1, H4, Product, Title } from "@/components";
 
 const Popular = () => {
   // dummy product data
@@ -18,7 +18,7 @@ const Popular = () => {
       price: 350,
     },
     {
-      title: "কালো এরাবিয়ান জুব্বা চেইন কোর্ট",
+      title: "কালো এরাবিয়ান জুব্বা চেইন",
       thumbnail: "/images/product_2.jpg",
       price: 350,
     },
@@ -48,23 +48,14 @@ const Popular = () => {
     <>
       <section className="py-12">
         <div className="container">
-          <div className="mb-8">
-            <Image
-              width={100}
-              height={100}
-              src="/images/hand.webp"
-              alt="Hand Picture"
-              className="mx-auto block mb-6"
-            />
-            <h1 className="text-5xl text-center text-black">
-              আমাদের কিছু পপুলার জুব্বা
-            </h1>
-            <p className="text-light text-center text-lg w-full max-w-[500px] mx-auto mt-4">
-              জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী (সা.)
-              পরেছেন, এই জন্য পরেন, তাহলে তিনি সওয়াব পাবেন।
-            </p>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 justify-between gap-7">
+          <Title
+            title="আমাদের কিছু পপুলার জুব্বা"
+            subTitle=" জোব্বা নবী (সা.) পরেছেন, সাব্যস্ত হয়েছে। সুতরাং কেউ যদি নবী (সা.)
+              পরেছেন, এই জন্য পরেন, তাহলে তিনি সওয়াব পাবেন।"
+            icon={<AiFillSkin />}
+            align="center"
+          />
+          <div className="grid grid-cols-2 lg:grid-cols-3 justify-between gap-y-7 gap-3 sm:gap-7">
             {products?.map((item: any, index: number) => (
               <Product {...item} key={index} />
             ))}

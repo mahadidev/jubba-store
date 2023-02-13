@@ -1,15 +1,23 @@
 export { default as Hero } from "./hero";
 export { default as Header } from "./header";
-export { default as Button } from "./button";
-export { default as Card } from "./card";
-export { default as Status } from "./status";
 export { default as Intro } from "./intro";
 export { default as Popular } from "./popular";
 export { default as Product } from "./product";
 export { default as Footer } from "./footer";
 export { default as Copyright } from "./copyright";
-export { default as Offer } from "./offer";
 export { default as Contact } from "./contact";
-export { default as Products } from "./products";
-export { default as Breadcrumb } from "./breadcrumb";
 export { default as Blog } from "./blog";
+export { default as Blogs } from "./blogs";
+export {
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  P,
+  Button,
+  Section,
+  Title,
+  Input,
+} from "./typography";

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Button from "../button";
+import { Button } from "@/components";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
