@@ -8,10 +8,12 @@ const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 
 const Product = ({
+  id,
   title,
   thumbnail,
   price,
 }: {
+  id: number;
   title: string;
   thumbnail: string;
   price: number;
@@ -121,10 +123,10 @@ const Product = ({
             </motion.div>
           </motion.div>
         </motion.div>
-        <Link href="/product">
+        <Link href={`product/${id}`}>
           <H4 className="text-black text-center">{title}</H4>
         </Link>
-        <Link href="/product">
+        <Link href={`product/${id}`}>
           <H4 className="text-center text-black font-bold">{price} BDT</H4>
         </Link>
       </motion.div>

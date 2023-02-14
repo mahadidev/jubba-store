@@ -4,19 +4,33 @@ import React, { createContext, useContext } from "react";
 const State = () => {
   // state
   const [isModalOpen, setModalOpen] = React.useState<boolean>(false);
+  const [modalClassName, setModalClassName] = React.useState<string>("");
+  const [modalContent, setModalContent] = React.useState<any>();
   // modal
-  const modalHandler = () => {
+  const modalHandler = (
+    dir: boolean,
+    content?: any,
+    modalClassName?: string
+  ) => {
     // set modal open
-    setModalOpen((prev) => !prev);
+    setModalOpen(dir);
     // set className to body
-    if (!isModalOpen) {
+    if (dir) {
       document.body.classList.add("modal__open");
     } else {
       document.body.classList.remove("modal__open");
     }
+    // set modal content
+    if (content) {
+      setModalContent(content);
+    }
+    // set modal class if has
+    if (modalClassName) {
+      setModalClassName(modalClassName);
+    }
   };
 
-  return { isModalOpen, modalHandler };
+  return { isModalOpen, modalHandler, modalClassName, modalContent };
 };
 
 const Context = createContext({} as ReturnType<typeof State>);

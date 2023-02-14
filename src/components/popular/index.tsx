@@ -7,37 +7,44 @@ const Popular = () => {
   // dummy product data
   const [products] = React.useState<
     {
+      id: number;
       title: string;
       thumbnail: string;
       price: number;
     }[]
   >([
     {
+      id: 1,
       title: "সেমি-লং সৌদিয়া সাদা জুব্বা",
       thumbnail: "/images/product_1.jpg",
       price: 350,
     },
     {
+      id: 2,
       title: "কালো এরাবিয়ান জুব্বা চেইন",
       thumbnail: "/images/product_2.jpg",
       price: 350,
     },
     {
+      id: 3,
       title: "মডার্ন বোটাম জুব্বা গ্রে-কালার",
       thumbnail: "/images/product_3.jpg",
       price: 350,
     },
     {
+      id: 4,
       title: "শর্ট সাহেবি পাঞ্জবি সাদা রং",
       thumbnail: "/images/product_4.jpg",
       price: 350,
     },
     {
+      id: 5,
       title: "গোল গলা লং জুব্বা কালো রং",
       thumbnail: "/images/product_5.jpg",
       price: 350,
     },
     {
+      id: 6,
       title: "ডাবল পার্ট জুব্বা সাদা-কালো",
       thumbnail: "/images/product_6.jpg",
       price: 350,

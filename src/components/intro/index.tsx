@@ -3,13 +3,29 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { H1, H4 } from "@/components";
-import {useStateContext} from "@/context";
+import { useStateContext } from "@/context";
 
 const NewIntro = () => {
   const [isHover, setHover] = React.useState<boolean>(false);
 
   // context
   const { modalHandler } = useStateContext();
+
+  // modal content
+  const modalContent = () => {
+    return (
+      <>
+        <iframe
+          src="https://www.youtube.com/embed/AdEmmloeDTg"
+          title="কলরব শিল্পীদের মত জোড়া তালি দেওয়া পাঞ্জাবী পড়ার হুকুম। আল্লামা মামুনুল হক সাহেব।"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen={true}
+          className="w-[96vw] sm:w-[85vw] md:w-[60vw] h-[73vw] sm:h-[48vw] md:h-[34vw]"
+        ></iframe>
+      </>
+    );
+  };
 
   return (
     <section className="mt-12 sm:mt-24">
@@ -57,7 +73,10 @@ const NewIntro = () => {
             <div className="w-full h-full bg-black/20 absolute top-0 left-0 right-0 bottom-0"></div>
           </motion.div>
 
-          <button className="absolute top-0 bottom-0 left-0 right-0 m-auto z-30 w-max h-max play__icon__wrapper rounded-full" onClick={() => modalHandler()}>
+          <button
+            className="absolute top-0 bottom-0 left-0 right-0 m-auto z-30 w-max h-max play__icon__wrapper rounded-full"
+            onClick={() => modalHandler(true, modalContent)}
+          >
             <Image
               className="w-[80px] h-[80px]"
               width={120}

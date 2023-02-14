@@ -9,6 +9,8 @@ export { default as Contact } from "./contact";
 export { default as Blog } from "./blog";
 export { default as Blogs } from "./blogs";
 export { default as Modal } from "./modal";
+export { default as ProductDetail } from "./productDetail";
+export { default as Breadcrumb } from "./breadcrumb";
 export {
   H1,
   H2,

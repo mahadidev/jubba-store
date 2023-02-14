@@ -5,7 +5,7 @@ import { Hind_Siliguri } from "@next/font/google";
 import { ContextProvider, useStateContext } from "@/context";
 
 const fontFamily = Hind_Siliguri({
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["bengali"],
 });
 
