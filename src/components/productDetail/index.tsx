@@ -14,9 +14,23 @@ import SwiperCore, {
   Controller,
   Zoom,
 } from "swiper";
-import { H1, H3, H5, H6, P, Section } from "@/components";
+import {
+  Button,
+  H1,
+  H3,
+  H5,
+  H6,
+  P,
+  Quantity,
+  Radio,
+  Section,
+} from "@/components";
+import { useStateContext } from "@/context";
 
 const ProductDetail = () => {
+  // context
+  const { cartQty, setCartQty } = useStateContext();
+  // state
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore>();
   const [firstSwiper, setFirstSwiper] = useState<SwiperClass>();
   const [secondSwiper, setSecondSwiper] = useState<SwiperClass>();
@@ -59,6 +73,9 @@ const ProductDetail = () => {
       },
     ],
   });
+  const [selectedColor, setSelectedColor] = React.useState<string>();
+  const [selectedSize, setSelectedSize] = React.useState<string>();
+  const [selectedQty, setSelectedQty] = React.useState<number>(1);
 
   useLayoutEffect(() => {
     if (swiper1Ref.current !== null) {
@@ -67,6 +84,11 @@ const ProductDetail = () => {
       }
     }
   }, []);
+
+  // add to cart
+  const addCart = () => {
+    setCartQty((prevQty: number) => prevQty + selectedQty);
+  };
 
   return (
     <Section className="!py-8">
@@ -125,7 +147,10 @@ const ProductDetail = () => {
                 },
                 index: number
               ) => (
-                <SwiperSlide className="w-[60px] h-[100px]" key={index}>
+                <SwiperSlide
+                  className="w-[60px] h-[80px] sm:h-[100px]"
+                  key={index}
+                >
                   <img
                     src={item.src}
                     alt="Product Image"
@@ -137,64 +162,127 @@ const ProductDetail = () => {
           </Swiper>
         </div>
         <div className="w-full lg:col-span-2">
-          <div>
+          <div className="w-full max-w-[600px]">
             <H6 className="text-red font-bold">আমাদের জুব্বা কালেশন</H6>
             <H1>{productData.title}</H1>
             <P className="w-full max-w-[600px] my-3 text-light">
               {productData.description}
             </P>
-            <div className="text-light flex gap-4 items-center mt-2">
-              <P className="text-red">মুল্য: </P>
-              <P>৳{productData.price}</P>
+            <div className="text-light flex gap-2 items-center mt-2">
+              <P className="text-red !text-lg">মুল্য: </P>
+              <P className="!text-lg">৳{productData.price}</P>
             </div>
-            <div className="text-light flex gap-4 items-start mt-2">
-              <P className="text-red">জুব্বার রং: </P>
-              <div>
-                <ul className="flex gap-4 items-center">
-                  {[
-                    { className: "bg-black", label: "কালো" },
-                    {
-                      className: "bg-slate-200",
-                      label: "সাদা",
-                    },
-                    {
-                      className: "bg-blue-900",
-                      label: "ব্লু",
-                    },
-                  ].map(
-                    (
-                      item: {
-                        className: string;
-                        label: string;
-                      },
-                      index: number
-                    ) => (
-                      <li key={index}>
-                        <input
-                          type="radio"
-                          id={`id${index}`}
-                          name="hosting"
-                          value="hosting-small"
-                          className="hidden peer"
-                          required
-                        />
-                        <label
-                          htmlFor={`id${index}`}
-                          className="flex flex-col gap-1 items-center peer-checked:border peer-checked:border-red"
-                        >
-                          <div
-                            className={`w-max rounded-full peer-checked:ring peer-checked:ring-red overflow-hidden`}
+            <div className="w-full h-[1px] my-3 bg-red/50"></div>
+            <div className="w-full bg-gray-100 p-3 rounded-s mb-3">
+              <table>
+                <tr>
+                  <td className="p-2 flex items-center">
+                    জুব্বার রংঃ {selectedColor}
+                  </td>
+                  <td className="p-2 flex items-center">
+                    <div className="flex gap-2 items-center">
+                      {[
+                        { className: "bg-black", label: "কালো" },
+                        {
+                          className: "bg-slate-200",
+                          label: "সাদা",
+                        },
+                        {
+                          className: "bg-blue-900",
+                          label: "ব্লু",
+                        },
+                      ].map(
+                        (
+                          item: {
+                            className: string;
+                            label: string;
+                          },
+                          index: number
+                        ) => (
+                          <Radio
+                            label={item.label}
+                            name={"color"}
+                            onChange={(color: string) => {
+                              setSelectedColor(color);
+                            }}
+                            key={index}
                           >
                             <span
-                              className={`block w-6 h-6 ${item.className}`}
+                              className={`block w-5 h-5 rounded-full ${item.className}`}
                             ></span>
-                          </div>
-                          <P className="!text-sm">{item.label}</P>
-                        </label>
-                      </li>
-                    )
-                  )}
-                </ul>
+                            {item.label}
+                          </Radio>
+                        )
+                      )}
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-2 flex items-center">
+                    সাইজঃ {selectedSize}
+                  </td>
+                  <td className="p-2 flex items-center">
+                    <div className="flex gap-2 items-center">
+                      <Radio
+                        label="sm"
+                        name="size"
+                        onChange={(size: string) => {
+                          setSelectedSize(size);
+                        }}
+                      >
+                        Small
+                      </Radio>
+                      <Radio
+                        label="md"
+                        name="size"
+                        onChange={(size: string) => {
+                          setSelectedSize(size);
+                        }}
+                      >
+                        Medium
+                      </Radio>
+                      <Radio
+                        label="lg"
+                        name="size"
+                        onChange={(size: string) => {
+                          setSelectedSize(size);
+                        }}
+                      >
+                        Large
+                      </Radio>
+                      <Radio
+                        label="xl"
+                        name="size"
+                        onChange={(size: string) => {
+                          setSelectedSize(size);
+                        }}
+                      >
+                        Extra Large
+                      </Radio>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-2 flex items-center">
+                    পরিমানঃ {selectedQty}
+                  </td>
+                  <td className="p-2 flex items-center">
+                    <Quantity
+                      value={selectedQty}
+                      onChange={(qty: number) => {
+                        setSelectedQty(qty);
+                      }}
+                    />
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div className="flex gap-3 items-center justify-between">
+              <div className="flex gap-2 items-center">
+                <Button className="bg-primary text-white">Buy Now</Button>
+                <Button className="bg-gray-100 text-black" onClick={addCart}>
+                  Add to cart
+                </Button>
               </div>
             </div>
           </div>

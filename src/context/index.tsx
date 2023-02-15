@@ -6,6 +6,7 @@ const State = () => {
   const [isModalOpen, setModalOpen] = React.useState<boolean>(false);
   const [modalClassName, setModalClassName] = React.useState<string>("");
   const [modalContent, setModalContent] = React.useState<any>();
+  const [cartQty, setCartQty] = React.useState<number>(0);
   // modal
   const modalHandler = (
     dir: boolean,
@@ -30,7 +31,14 @@ const State = () => {
     }
   };
 
-  return { isModalOpen, modalHandler, modalClassName, modalContent };
+  return {
+    isModalOpen,
+    modalHandler,
+    modalClassName,
+    modalContent,
+    cartQty,
+    setCartQty,
+  };
 };
 
 const Context = createContext({} as ReturnType<typeof State>);

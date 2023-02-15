@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+import React from "react";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 export const H1 = ({
   children,
@@ -130,13 +133,20 @@ export const A = ({
 export const Button = ({
   children,
   className,
+  onClick,
 }: {
   children: any;
   className?: string;
+  onClick?: CallableFunction;
 }) => {
   return (
     <button
-      className={`flex gap-3 items-center px-4 sm:px-7 py-2 rounded-full ${className}`}
+      className={`flex gap-3 items-center px-4 sm:px-7 py-2 rounded-sm ${className}`}
+      onClick={() => {
+        if (onClick) {
+          onClick();
+        }
+      }}
     >
       {children}
     </button>
@@ -256,6 +266,102 @@ export const Input = ({
             rows={4}
           ></textarea>
         )}
+      </div>
+    </>
+  );
+};
+
+export const Radio = ({
+  label,
+  name,
+  onChange,
+  children,
+}: {
+  label: string;
+  name: string;
+  onChange: CallableFunction;
+  children: any;
+}) => {
+  return (
+    <>
+      <div className="">
+        <input
+          type="radio"
+          name={name}
+          id={label}
+          value={label}
+          onChange={(e) => {
+            onChange(e.target.value);
+          }}
+          className="hidden peer"
+        />
+        <label
+          htmlFor={`${label}`}
+          className="flex gap-2 items-center px-3 py-2 ring-[1px] ring-gray-200 peer-checked:ring-red/40 text-light peer-checked:bg-red/10 rounded-sm text-xs"
+        >
+          {children}
+        </label>
+      </div>
+    </>
+  );
+};
+
+export const Quantity = ({
+  value,
+  onChange,
+}: {
+  value?: number;
+  onChange: CallableFunction;
+}) => {
+  const [min, setMin] = React.useState<number>(1);
+  const [max, setMax] = React.useState<number>(7);
+  const [val, setVal] = React.useState<number>(value ? value : 1);
+
+  // increase
+  const increase = () => {
+    if (val + 1 <= max) {
+      setVal((prevVal) => prevVal + 1);
+      onChange(val + 1);
+    }
+  };
+  // decrease
+  const decrease = () => {
+    if (val - 1 >= min) {
+      setVal((prevVal) => prevVal - 1);
+      onChange(val - 1);
+    }
+  };
+
+  // change
+  const change = (val: number) => {
+    if (val <= max && val >= min) {
+      setVal(val);
+      onChange(val);
+    }
+  };
+
+  return (
+    <>
+      <div className="flex items-stretch">
+        <button
+          className="flex items-center cursor-pointer px-2 py-1 bg-white"
+          onClick={decrease}
+        >
+          <AiOutlineMinus />
+        </button>
+        <input
+          className="w-9 py-1 bg-white outline-0 text-center"
+          value={val}
+          onChange={(e: any) => {
+            change(e.target.value);
+          }}
+        />
+        <button
+          className="flex items-center cursor-pointer px-2 py-1 bg-white"
+          onClick={increase}
+        >
+          <AiOutlinePlus />
+        </button>
       </div>
     </>
   );

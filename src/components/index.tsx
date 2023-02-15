@@ -23,4 +23,6 @@ export {
   Section,
   Title,
   Input,
+  Radio,
+  Quantity,
 } from "./typography";

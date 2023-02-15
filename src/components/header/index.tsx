@@ -6,7 +6,8 @@ import React from "react";
 import { Button } from "@/components";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineShoppingCart } from "react-icons/ai";
+import { useStateContext } from "@/context";
 
 const Header = () => {
   const [menu] = React.useState([
@@ -33,6 +34,9 @@ const Header = () => {
   ]);
   const [isSidebar, setSidebar] = React.useState<boolean>(false);
 
+  // context
+  const { cartQty } = useStateContext();
+
   return (
     <header className="bg-white shadow-[0_0_15px_#20393c14] relative z-30">
       <div className="container flex gap-3 justify-between items-center py-2 sm:py-4">
@@ -47,7 +51,7 @@ const Header = () => {
             Saudia Jubba House
           </h2>
         </Link>
-        <div className="hidden sm:flex gap-14 items-center">
+        <div className="hidden sm:flex gap-8 items-center">
           <div className="flex gap-8 items-center">
             {menu?.map(
               (
@@ -67,19 +71,34 @@ const Header = () => {
               )
             )}
           </div>
-          <Button className="bg-red text-white !hidden lg:!flex">
-            অর্ডার করুন
-          </Button>
+          <button className="text-2xl text-gray-600 relative">
+            {cartQty > 0 && (
+              <span className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs">
+                {cartQty}
+              </span>
+            )}
+            <AiOutlineShoppingCart />
+          </button>
         </div>
         <div className="block sm:hidden">
-          <button
-            className={`flex items-center cursor-pointer text-4xl ${
-              isSidebar ? "text-white" : "text-black"
-            } relative z-30 transition-all`}
-            onClick={() => setSidebar((status) => !status)}
-          >
-            {!isSidebar ? <HiMenuAlt3 /> : <AiOutlineClose />}
-          </button>
+          <div className="flex items-center gap-4">
+            <button className="text-3xl text-gray-600 relative">
+              {cartQty > 0 && (
+                <span className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs">
+                  {cartQty}
+                </span>
+              )}
+              <AiOutlineShoppingCart />
+            </button>
+            <button
+              className={`flex items-center cursor-pointer text-3xl ${
+                isSidebar ? "text-white" : "text-black"
+              } relative z-30 transition-all`}
+              onClick={() => setSidebar((status) => !status)}
+            >
+              {!isSidebar ? <HiMenuAlt3 /> : <AiOutlineClose />}
+            </button>
+          </div>
 
           <motion.aside
             className="w-[90%] h-screen fixed top-0 right-0 bg-primary shadow-[0_0_16px_#0003]"
@@ -114,8 +133,6 @@ const Header = () => {
                 )
               )}
             </div>
-
-            <Button className="bg-red text-white ml-8 mt-4">Order Now</Button>
           </motion.aside>
         </div>
       </div>
