@@ -42,7 +42,7 @@ const Product = ({
           }}
         >
           <Link
-            href="/product"
+            href={`product/${id}`}
             className="w-full h-[15rem] sm:h-[20rem] lg:h-[30rem] relative flex justify-center items-start"
           >
             <Image
