@@ -7,21 +7,19 @@ import { H4 } from "@/components";
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 
-const Product = ({
-  id,
-  title,
-  thumbnail,
-  price,
-}: {
-  id: number;
-  title: string;
-  thumbnail: string;
-  price: number;
-}) => {
+const Product = (props: any) => {
   // state
+  const [product, setProduct] = React.useState(null);
   const [isHover, setHover] = React.useState<boolean>(false);
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [isInView, setIsInView] = React.useState(false);
+
+  // on load
+  React.useEffect(() => {
+    if (props) {
+      setProduct(props);
+    }
+  }, [props]);
 
   return (
     <>
@@ -42,16 +40,18 @@ const Product = ({
           }}
         >
           <Link
-            href={`product/${id}`}
+            href={`product/${product?.id}`}
             className="w-full h-[15rem] sm:h-[20rem] lg:h-[30rem] relative flex justify-center items-start"
           >
-            <Image
-              width={500}
-              height={500}
-              src={thumbnail}
-              alt="Jubba Picture"
-              className="w-full h-full object-cover"
-            />
+            {product && product?.thumbnail && (
+              <Image
+                width={500}
+                height={500}
+                src={product?.thumbnail}
+                alt="Jubba Picture"
+                className="w-full h-full object-cover"
+              />
+            )}
             <motion.div
               className="absolute top-0 left-0 w-full h-full"
               initial={{
@@ -69,13 +69,19 @@ const Product = ({
               }}
               layout="position"
             >
-              <Image
-                width={500}
-                height={500}
-                src={"/images/product_1.jpg"}
-                alt="Jubba Picture"
-                className="w-full h-full object-cover"
-              />
+              {product && product?.images.length >= 1 && (
+                <Image
+                  width={500}
+                  height={500}
+                  src={
+                    props?.images[0] === props?.thumbnail
+                      ? props?.images[1]
+                      : props?.images[0]
+                  }
+                  alt="Jubba Picture"
+                  className="w-full h-full object-cover"
+                />
+              )}
             </motion.div>
           </Link>
 
@@ -123,11 +129,13 @@ const Product = ({
             </motion.div>
           </motion.div>
         </motion.div>
-        <Link href={`product/${id}`}>
-          <H4 className="text-black text-center">{title}</H4>
+        <Link href={`product/${product?.id}`}>
+          <H4 className="text-black text-center">{product?.name}</H4>
         </Link>
-        <Link href={`product/${id}`}>
-          <H4 className="text-center text-black font-bold">{price} BDT</H4>
+        <Link href={`product/${product?.id}`}>
+          <H4 className="text-center text-black font-bold">
+            {product?.price} BDT
+          </H4>
         </Link>
       </motion.div>
     </>
