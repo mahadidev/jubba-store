@@ -71,14 +71,16 @@ const Header = () => {
               )
             )}
           </div>
-          <button className="text-2xl text-gray-600 relative">
-            {cartQty > 0 && (
-              <span className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs">
-                {cartQty}
-              </span>
-            )}
-            <AiOutlineShoppingCart />
-          </button>
+          <Link href="cart">
+            <button className="text-2xl text-gray-600 relative">
+              {cartQty > 0 && (
+                <span className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs">
+                  {cartQty}
+                </span>
+              )}
+              <AiOutlineShoppingCart />
+            </button>
+          </Link>
         </div>
         <div className="block sm:hidden">
           <div className="flex items-center gap-4">

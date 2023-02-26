@@ -3,6 +3,22 @@ import Image from "next/image";
 import React from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
+export const Section = ({
+  children,
+  className,
+  contain = true,
+}: {
+  children: any;
+  className?: string;
+  contain?: boolean;
+}) => {
+  return (
+    <section className={`py-12 sm:py-36 ${className && className}`}>
+      <div className={`${contain ? "container" : ""}`}>{children}</div>
+    </section>
+  );
+};
+
 export const H1 = ({
   children,
   className,
@@ -153,22 +169,6 @@ export const Button = ({
   );
 };
 
-export const Section = ({
-  children,
-  className,
-  contain = true,
-}: {
-  children: any;
-  className?: string;
-  contain?: boolean;
-}) => {
-  return (
-    <section className={`py-12 sm:py-36 ${className && className}`}>
-      <div className={`${contain && "container"}`}>{children}</div>
-    </section>
-  );
-};
-
 export const Title = ({
   title,
   subTitle,
@@ -274,11 +274,13 @@ export const Input = ({
 export const Radio = ({
   label,
   name,
+  value,
   onChange,
   children,
 }: {
   label: string;
   name: string;
+  value: any;
   onChange: CallableFunction;
   children: any;
 }) => {
@@ -291,7 +293,7 @@ export const Radio = ({
           id={label}
           value={label}
           onChange={(e) => {
-            onChange(e.target.value);
+            onChange(value);
           }}
           className="hidden peer"
         />

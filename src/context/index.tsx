@@ -1,12 +1,12 @@
 "use client";
 import React, { createContext, useContext } from "react";
+import cartContext from "./cartContext";
 
 const State = () => {
   // state
   const [isModalOpen, setModalOpen] = React.useState<boolean>(false);
   const [modalClassName, setModalClassName] = React.useState<string>("");
   const [modalContent, setModalContent] = React.useState<any>();
-  const [cartQty, setCartQty] = React.useState<number>(0);
   // modal
   const modalHandler = (
     dir: boolean,
@@ -30,14 +30,21 @@ const State = () => {
       setModalClassName(modalClassName);
     }
   };
+  // cart
+  const cart = cartContext();
+
+  // call default
+  const contextDefaultCall = () => {
+    cart.getCartItems();
+  };
 
   return {
+    contextDefaultCall,
     isModalOpen,
     modalHandler,
     modalClassName,
     modalContent,
-    cartQty,
-    setCartQty,
+    ...cart,
   };
 };
 

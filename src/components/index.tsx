@@ -11,6 +11,7 @@ export { default as Blogs } from "./blogs";
 export { default as Modal } from "./modal";
 export { default as ProductDetail } from "./productDetail";
 export { default as Breadcrumb } from "./breadcrumb";
+export { default as Cart } from "./cart";
 export {
   H1,
   H2,

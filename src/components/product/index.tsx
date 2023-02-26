@@ -49,7 +49,7 @@ const Product = (props: any) => {
                 height={500}
                 src={product?.thumbnail}
                 alt="Jubba Picture"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             )}
             <motion.div
@@ -79,14 +79,14 @@ const Product = (props: any) => {
                       : props?.images[0]
                   }
                   alt="Jubba Picture"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               )}
             </motion.div>
           </Link>
 
           <motion.div
-            className="hidden lg:flex absolute top-0 left-0 w-full h-full justify-center items-end gap-3"
+            className="hidden absolute top-0 left-0 w-full h-full justify-center items-end gap-3"
             layout="position"
           >
             <motion.div
