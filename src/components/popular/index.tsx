@@ -3,13 +3,14 @@ import { AiFillSkin } from "react-icons/ai";
 import React from "react";
 import { H1, H4, Product, Title } from "@/components";
 import { getData } from "@/lib";
+import { ProductType } from "types";
 
 const Popular = () => {
   // dummy product data
-  const [products, setProducts] = React.useState<any>(null);
+  const [products, setProducts] = React.useState<ProductType[] | null>(null);
 
   // set data
-  const setData = (data: any) => {
+  const setData = (data: ProductType[]) => {
     setProducts(data);
   };
 
@@ -17,7 +18,7 @@ const Popular = () => {
   React.useEffect(() => {
     getData({
       collectionName: "products",
-      onSuccess: (data: any) => {
+      onSuccess: (data: ProductType[]) => {
         setData(data);
       },
     });
@@ -35,7 +36,7 @@ const Popular = () => {
             align="center"
           />
           <div className="grid grid-cols-2 lg:grid-cols-3 justify-between gap-y-7 gap-3 sm:gap-7">
-            {products?.map((item: any, index: number) => (
+            {products?.map((item: ProductType, index: number) => (
               <Product {...item} key={index} />
             ))}
           </div>

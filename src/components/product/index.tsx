@@ -3,13 +3,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { H4 } from "@/components";
+import { ProductType } from "types";
 
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 
-const Product = (props: any) => {
+const Product = (props: ProductType) => {
   // state
-  const [product, setProduct] = React.useState(null);
+  const [product, setProduct] = React.useState<ProductType | null>(null);
   const [isHover, setHover] = React.useState<boolean>(false);
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [isInView, setIsInView] = React.useState(false);
